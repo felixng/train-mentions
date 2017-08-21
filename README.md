@@ -1,3 +1,3 @@
-:performing_arts: :speech_balloon: Theatre Tweets :notes: :uk:
+:bullettrain_front: :speech_balloon: Train Buzz :uk: :station:
 
-Display daily ranking of current West End theatre productions base on number of twitter mentions retweets and favourites.
+Display top tweeted provider based on number of twitter mentions, retweets and favourites.
