@@ -19,7 +19,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
       <HeaderWrapper>
         <H1>
         	<Link to='/'>
-        	The Most Tweeted Shows in London
+        	   Train Buzz
         	</Link>
         </H1>
       </HeaderWrapper >

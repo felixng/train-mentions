@@ -55,7 +55,7 @@ const initialState = window.APP_STATE || {};
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const browserHistory = useRouterHistory(createHistory)({
-    basename: '/WestEnd',
+    basename: '/uk',
 });
 const store = configureStore(initialState, browserHistory);
 
