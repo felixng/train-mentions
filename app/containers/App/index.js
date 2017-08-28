@@ -23,6 +23,7 @@ const AppContainer = styled.div`
 
 const AppWrapper = styled.div`
   margin: 0;
+  font-weight: 300;
   font-family: 'Open Sans', sans-serif;  
 `;
 

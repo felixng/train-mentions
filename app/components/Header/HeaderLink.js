@@ -12,9 +12,8 @@ export default styled(Link)`
   user-select: none;
   cursor: pointer;
   outline: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 3.5em;
   border: 2px solid #41ADDD;
   color: #41ADDD;
   

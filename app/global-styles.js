@@ -12,7 +12,7 @@ injectGlobal`
   }
 
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {
@@ -21,7 +21,7 @@ injectGlobal`
     max-width: 100%;
     width: 100%;
     color: #fff;
-    background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, #4b4b4b 0%, #484848 100%);
   }
 
   p,

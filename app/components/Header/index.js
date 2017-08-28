@@ -17,7 +17,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
   render() {
     return (
       <HeaderWrapper>
-        <H1>
+        <H1 logo>
         	<Link to='/'>
         	   Train Buzz
         	</Link>

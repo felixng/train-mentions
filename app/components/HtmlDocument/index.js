@@ -60,7 +60,7 @@ export default function HtmlDocument({ lang, head, css, appMarkup, state, assets
         <script type="text/javascript" src={assets.main.js}></script>
 
         {/* see app/setup/openSansObserver.js */}
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300|Open+Sans:300,400,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
       </body>
