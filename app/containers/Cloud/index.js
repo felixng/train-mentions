@@ -30,40 +30,6 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     };
   }
 
-  // attachScrollListener () {
-  //   let el = window;
-    
-  //   el.addEventListener('scroll', this.scrollFunction, true);  
-  // }
-
-  // scrollListener() {
-  //   const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-  //   const body = document.body;
-  //   const html = document.documentElement;
-  //   const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-  //   const windowBottom = windowHeight + window.pageYOffset;
-  //   if (windowBottom >= docHeight - scrollOffset) {
-  //       this.loadMore(this.state.page + 1);
-  //   }
-  // }
-
-  // componentWillUnmount () {
-  //   if (!isMobile()){
-  //     this.detachScrollListener();
-  //   }
-  // }
-
-  // detachScrollListener () {
-  //   let el = window;
-  //   el.removeEventListener('scroll', this.scrollFunction, true);
-  // }
-
-  // componentDidMount () {
-  //   if (!isMobile()){
-  //     this.attachScrollListener();
-  //   }
-  // }
-
   shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -109,7 +75,7 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
         <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted}/>
       ));
 
-      defaultTile = this.props.showTitle + " West End Reviews | Best West End Shows Based on Tweets | Theatre Chatter";
+      defaultTile = this.props.showTitle + " Train Company Reviews | Worst Performing Train Companies Based on Tweets | Train Buzz";
       defaultDesc = "Find out what people are saying about " + this.props.showTitle + " based on tweets by theatre-goers like you and me!";
     } else {
       // Otherwise render a single component

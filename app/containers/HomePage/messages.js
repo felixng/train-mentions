@@ -8,22 +8,18 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   startProjectHeader: {
     id: 'boilerplate.containers.HomePage.start_project.header',
-    defaultMessage: 'See what are the most popular shows in the theatre',
+    defaultMessage: 'See what are the most popular train companies in the UK',
   },
   startProjectMessage: {
     id: 'boilerplate.containers.HomePage.start_project.message',
-    defaultMessage: 'Top 5 Trending West End Musicals in the theatre right now - Best West End Shows Based on your tweets!',
+    defaultMessage: 'Most Complained Train Companies in the UK right now - Train Companies Reviews Based on your Tweets!',
   },
-  trymeHeader: {
-    id: 'boilerplate.containers.HomePage.tryme.header',
-    defaultMessage: 'Try me!',
+  metaTitle: {
+    id: 'boilerplate.containers.HomePage.meta.default_titles',
+    defaultMessage: 'Top 5 Train Companies | Worst Performing Train Companies Based on Tweets | Train Buzz',
   },
-  trymeMessage: {
-    id: 'boilerplate.containers.HomePage.tryme.message',
-    defaultMessage: 'Show Github repositories by',
-  },
-  trymeAtPrefix: {
-    id: 'boilerplate.containers.HomePage.tryme.atPrefix',
-    defaultMessage: '@',
+  metaDesc: {
+    id: 'boilerplate.containers.HomePage.meta.default_description',
+    defaultMessage: 'Find out what people are saying about these Train Companies based on tweets by commuters like you and me!',
   },
 });

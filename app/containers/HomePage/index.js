@@ -110,8 +110,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     let bookNow = (<div></div>);
     let loadingOverlay = (<div></div>);
     let buttons = (<div></div>);
-    var defaultTile = "Top 5 West End Musicals | Best West End Shows Based on Tweets | Train Buzz";
-    var defaultDesc = "Find out what people are saying about these Train Companies based on tweets by commuters like you and me!";
+    var defaultTile = messages.startProjectMessage.metaTitle;
+    var defaultDesc = messages.startProjectMessage.metaDesc;
 
     const { loading, error, shows, date, tweets, tweetsError, tweetsLoading } = this.props;
     const currentDate = new Date(date)
