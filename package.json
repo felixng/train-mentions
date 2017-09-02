@@ -26,6 +26,7 @@
     "build:clean": "rimraf ./build  && npm run ssr:clean",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "prestart": "npm run ssr:generate",
+    "heroku-postbuild": "npm run build",
     "start": "cross-env NODE_ENV=development npm-run-all --parallel ssr:generate:watch ssr:start start:dev",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run build && npm run start:prod",
