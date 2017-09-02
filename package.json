@@ -139,7 +139,6 @@
     "redux-immutable": "4.0.0",
     "redux-saga": "0.15.3",
     "reselect": "3.0.1",
-    "rimraf": "^2.6.1",
     "sanitize.css": "5.0.0",
     "scroll-to": "0.0.2",
     "sleep": "^5.1.1",
