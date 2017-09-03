@@ -24,7 +24,7 @@ function List(props) {
   if (props.header) {
     header = (
       <TitleWrapper>
-        <H2>What's Trending?</H2>
+        <H2>Who's Buzzing?</H2>
         {/*<i className="fa fa-heart-o" aria-hidden="true"></i>*/}
         <Title>
           {props.header}
