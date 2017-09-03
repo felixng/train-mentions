@@ -76,7 +76,7 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
       ));
 
       defaultTile = this.props.showTitle + " Train Company Reviews | Worst Performing Train Companies Based on Tweets | Train Buzz";
-      defaultDesc = "Find out what people are saying about " + this.props.showTitle + " based on tweets by theatre-goers like you and me!";
+      defaultDesc = "Find out what people are saying about " + this.props.showTitle + " based on tweets by commuters like you and me!";
     } else {
       // Otherwise render a single component
       return (<ComponentToRender />);
