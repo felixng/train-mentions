@@ -54,5 +54,5 @@ app.listen(port, host, (err) => {
 var CronJob = require('cron').CronJob;
 
 new CronJob('00 00 01 * * *', function() {
-  counters.theatreCounter.gatherAll();
+  counters.tweetCounter.gatherAll();
 }, null, true, 'Europe/London');

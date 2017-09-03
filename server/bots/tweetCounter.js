@@ -1,4 +1,4 @@
-function TweetCounter(name ,T, redis, tableName) {
+function TweetCounter(T, redis, tableName) {
     const ignore = ['e_n_o', 'enballet', 'the_globe', 'sadlers_wells', 'menchocfactory', 'openairtheatre', 'youngvictheatre', 'oldvictheatre', 'lyrichammer', 'nationaltheatre', '', null];
     var fs = require('fs');
     var http = require("http");
@@ -6,7 +6,7 @@ function TweetCounter(name ,T, redis, tableName) {
     var mongo = require('./db/mongo');
 
     const isDev = process.env.NODE_ENV !== 'production';
-    const url = process.env.API_URL || 'uat-cms-ensemblr.herokuapp.com';
+    // const url = process.env.API_URL || 'uat-cms-ensemblr.herokuapp.com';
     const googleQuery = process.env.GOOGLE_QUERY || 'id=1cM9FHR5-BjLJFh9CurAVtfL2MVg73mEzCnD_pvf2ZDQ'
     const spreadsheet = 'https://spreadsheets.google.com/feeds/list/1cM9FHR5-BjLJFh9CurAVtfL2MVg73mEzCnD_pvf2ZDQ/1/public/full?alt=json'
 
@@ -141,18 +141,18 @@ function TweetCounter(name ,T, redis, tableName) {
         }
     };
 
-    function getProductionsFromAPI(callback){
-        var options = {
-          hostname: url,
-          path: '/api/productions/twitters',
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
-        };
+    // function getProductionsFromAPI(callback){
+    //     var options = {
+    //       hostname: url,
+    //       path: '/api/productions/twitters',
+    //       method: 'GET',
+    //       headers: { 'Content-Type': 'application/json' }
+    //     };
 
-        getJSON(options, function(status, result) {
-            callback(result);
-        });
-    }
+    //     getJSON(options, function(status, result) {
+    //         callback(result);
+    //     });
+    // }
 
     var getTweetChunk = function myself (tally, max_id) {
         return new Promise( (resolve, reject) => {

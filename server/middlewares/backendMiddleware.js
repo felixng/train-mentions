@@ -17,7 +17,7 @@ const addBackendMiddlewares = (app) => {
 	const counters = require('../bots/counters');
 
 	app.post('/crawl/:daysAgo/:length', passport.authenticate('basic', { session: false }), function(req, res) {
-	  counters.theatreCounter.gatherAllDuration(req.params.daysAgo, req.params.length);
+	  counters.tweetCounter.gatherAllDuration(req.params.daysAgo, req.params.length);
 	  
 	  res.status(200).send();
 	});
@@ -33,8 +33,6 @@ const addBackendMiddlewares = (app) => {
 	  		res.json(snapshot);	
 	  	})
 	});
-
-	
 }
 
 module.exports = (app) => {
