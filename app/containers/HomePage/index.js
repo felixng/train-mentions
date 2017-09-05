@@ -267,7 +267,7 @@ export function mapDispatchToProps(dispatch, ownProps) {
       }
     },
     onTweetLoaded: () => {
-      dispatch(loadBookNowDetails());
+      // dispatch(loadBookNowDetails());
     }
   };
 }
