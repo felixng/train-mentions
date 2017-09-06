@@ -23,7 +23,7 @@ const FadeOut = keyframes`
 
 const SquareButton = styled.button`
 	opacity: 0.4;
-	background-color: #c24448;
+	background-color: #1b1b1b;
 	width: 40px;
 	height: 40px;
 	position: fixed;

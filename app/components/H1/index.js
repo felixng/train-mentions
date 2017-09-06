@@ -17,6 +17,11 @@ const H1 = styled.h1`
   	font-size: 4em;
   	font-weight: 100;
   	font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    @media (max-width: 400px) {
+      font-size: 3em;
+      margin: 0em;
+    }
   `}
 `;
 

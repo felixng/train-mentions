@@ -11,6 +11,10 @@ import messages from './messages';
 
 const HeaderWrapper = styled.div`
   margin-top: 2.5em;
+
+  @media (max-width: 400px) {
+    margin-top: 1.5em;
+  }
 `;
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
