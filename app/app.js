@@ -32,6 +32,7 @@ import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line impor
 
 // Import CSS reset
 import 'sanitize.css/sanitize.css';
+import ReactGA from 'react-ga';
 
 // Global styles should be injected before any other scoped style, so make sure
 // this file is imported before any styled component.

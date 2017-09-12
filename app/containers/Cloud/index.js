@@ -83,7 +83,6 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     }
 
     if (!isMobile()){
-      console.log('not mobile');
       tweets = <Masonry elementType={'div'} 
                    className={'tweets'}
                    options={masonryOptions}>
