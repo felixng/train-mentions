@@ -7,6 +7,8 @@ import Wrapper from './Wrapper';
 import Icon from './Icon';
 import messages from './messages';
 
+var dashboardLink = "https://twitter.com/hellofelixng" || process.env.DASHBOARD_LINK;
+
 function Footer() {
   return (
     <Wrapper>
@@ -17,10 +19,9 @@ function Footer() {
         <FormattedMessage
           {...messages.authorMessage}
           values={{
-            author: <A target="_blank" href="https://twitter.com/hellofelixng">
-                      Felix
-                      <Icon className="fa fa-twitter" aria-hidden="true"></Icon>
-                    </A>
+            dashboard: <A target="_blank" href={dashboardLink} strong>
+                          Realtime Dashboard
+                       </A>
           }}
         />
       </section>

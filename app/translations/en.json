@@ -1,6 +1,6 @@
 {
   "boilerplate.containers.brand": "Train Buzz",
-  "boilerplate.components.Footer.author.message": "Made with love by {author}.",
+  "boilerplate.components.Footer.author.message": "Check out our {link}.",
   "boilerplate.components.Footer.license.message": "This project is licensed under the MIT license.",
   "boilerplate.containers.FeaturePage.css.header": "Features",
   "boilerplate.containers.FeaturePage.css.message": "Next generation CSS",
