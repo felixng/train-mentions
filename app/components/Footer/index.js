@@ -6,16 +6,21 @@ import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
 import Icon from './Icon';
 import messages from './messages';
+import styled from 'styled-components';
 
 var dashboardLink = "https://twitter.com/hellofelixng" || process.env.DASHBOARD_LINK;
+
+const Section = styled.section`
+  margin: 0 0.25em;
+`
 
 function Footer() {
   return (
     <Wrapper>
-      <section>
+      <Section>
         <FormattedMessage {...messages.triggerMessage} />
-      </section>
-      <section>
+      </Section>
+      <Section style={{textAlign:'right'}}>
         <FormattedMessage
           {...messages.authorMessage}
           values={{
@@ -24,7 +29,7 @@ function Footer() {
                        </A>
           }}
         />
-      </section>
+      </Section>
     </Wrapper>
   );
 }

@@ -12,7 +12,7 @@ export default defineMessages({
   },
   triggerMessage: {
     id: 'boilerplate.components.Footer.trigger.message',
-    defaultMessage: 'What are people rage tweeting?',
+    defaultMessage: 'What are people tweeting?',
   },
   authorMessage: {
     id: 'boilerplate.components.Footer.author.message',
