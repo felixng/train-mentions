@@ -23,7 +23,7 @@ export default function HtmlDocument({ lang, head, css, appMarkup, state, assets
         <link rel="apple-touch-icon" sizes="167x167" href="/icon-167x167.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico?v=3" />
 
         {head.title.toComponent()}
         {head.meta.toComponent()}
