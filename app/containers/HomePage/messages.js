@@ -16,7 +16,7 @@ export default defineMessages({
   },
   metaTitle: {
     id: 'boilerplate.containers.HomePage.meta.default_titles',
-    defaultMessage: 'Top 5 Train Companies | Worst Performing Train Companies Based on Tweets | Train Buzz',
+    defaultMessage: 'Top 5 Tweeted Train Companies | Train Companies Complaints Based on Tweets | Train Buzz',
   },
   metaDesc: {
     id: 'boilerplate.containers.HomePage.meta.default_description',
