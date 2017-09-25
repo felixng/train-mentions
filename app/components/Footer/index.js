@@ -8,7 +8,7 @@ import Icon from './Icon';
 import messages from './messages';
 import styled from 'styled-components';
 
-var dashboardLink = "https://twitter.com/hellofelixng" || process.env.DASHBOARD_LINK;
+var dashboardLink = process.env.DASHBOARD_LINK || "https://trainbuzz-realtime.herokuapp.com/";
 
 const Section = styled.section`
   margin: 0 0.25em;
