@@ -47,6 +47,7 @@ function homeReducer(state = initialState, action) {
     case CHANGE_DATE:
       return state
         .set('date', action.date)
+        .setIn(['snapshot', 'handle'], '')
         .setIn(['snapshot', 'tweets'], false)
         .setIn(['snapshot', 'name'], false)
         .setIn(['snapshot', 'tweetsCount'], -1)

@@ -39,6 +39,10 @@ injectGlobal`
     margin: 0 auto;
   }
 
+  .tweets > div {
+    min-width: 300px;
+  }
+
   *,
   *::before,
   *::after {
