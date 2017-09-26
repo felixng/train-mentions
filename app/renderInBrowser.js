@@ -5,7 +5,7 @@ import applyRouterMiddleware from 'react-router/lib/applyRouterMiddleware';
 import Router from 'react-router/lib/Router';
 import useScroll from 'react-router-scroll/lib/useScroll';
 import AppRoot from 'containers/AppRoot';
-var ReactGA = require('react-ga');
+import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-42166600-18');
 
