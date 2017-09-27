@@ -10,7 +10,7 @@ import HeaderLink from './HeaderLink';
 import messages from './messages';
 
 const HeaderWrapper = styled.div`
-  margin-top: 2.5em;
+  margin-top: 2em;
 
   @media (max-width: 400px) {
     margin-top: 1.5em;
