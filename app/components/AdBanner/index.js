@@ -10,7 +10,7 @@ class AdBanner extends Component {
 		const style = {
 			display: 'block',
 			maxWidth: '300px',
-			margin: '10px auto'
+			margin: '10px'
 		};
 
 		return(
