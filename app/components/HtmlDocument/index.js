@@ -34,6 +34,7 @@ export default function HtmlDocument({ lang, head, css, appMarkup, state, assets
         <link href={assets.main.css} rel="stylesheet" />
 
         {/* server side rendered css style tags */}
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         { css }
       </head>
       <body>

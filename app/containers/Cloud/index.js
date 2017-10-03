@@ -9,6 +9,7 @@ import Masonry from 'react-masonry-component';
 import MasonryInfiniteScroller from 'react-masonry-infinite';
 import { makeSelectTweetsLoading, makeSelectShowName } from 'containers/HomePage/selectors';
 import LoadingIndicator from 'components/LoadingIndicator';
+import AdBanner from 'components/AdBanner';
 import isMobile from 'utils/common';
 
 const pageSize = 20;
@@ -69,11 +70,19 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     var defaultTile = '';
     var defaultDesc = '';
 
+    
+
+
     // If we have items, render them
     if (this.state.elements) {
+      
       content = this.state.elements.map((item, index) => (
         <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted}/>
       ));
+
+      //Inject Advert
+      var banner = (<AdBanner key={`advert`} />);
+      content.splice(1, 0, banner);
 
       defaultTile = this.props.showTitle + " Train Company Reviews | Worst Performing Train Companies Based on Tweets | Train Buzz";
       defaultDesc = "Find out what people are saying about " + this.props.showTitle + " based on tweets by commuters like you and me!";
