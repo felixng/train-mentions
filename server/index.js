@@ -56,3 +56,12 @@ var CronJob = require('cron').CronJob;
 new CronJob('00 00 01 * * *', function() {
   counters.tweetCounter.gatherAll();
 }, null, true, 'Europe/London');
+
+setTimeout(function(){
+  // console.log('counters.tweetCounter.getYesterdayRanking()');
+  // counters.tweetCounter.getYesterdayRanking();
+}, 15000);
+
+// new CronJob('00 05 01 * * *', function() {
+  
+// }, null, true, 'Europe/London');

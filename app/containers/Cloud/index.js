@@ -27,7 +27,8 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     this.state = {
       hasMore: true,
       elements: this.getCards(0),
-      page: 0
+      page: 0,
+      windowWidth: 0
     };
   }
 
@@ -63,6 +64,19 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
   //   }
   // }
 
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
   render() {
     const ComponentToRender = this.props.component;
     let tweets = (<div></div>)
@@ -77,7 +91,7 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     if (this.state.elements) {
       
       content = this.state.elements.map((item, index) => (
-        <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted}/>
+        <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted} width={this.state.windowWidth}/>
       ));
 
       //Inject Advert

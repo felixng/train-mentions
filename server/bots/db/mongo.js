@@ -22,7 +22,7 @@ var insert = function(result){
 
 var list = function(date, numberOfItems, callback){
 	MongoClient.connect(url, function(err, db) {
-	  console.log("Connected correctly to server");
+	  console.log("getting list for " + date);
 	  var collection = db.collection(collectionName);
 
 	  collection.find({ date: date })

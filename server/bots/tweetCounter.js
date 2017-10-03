@@ -295,6 +295,15 @@ function TweetCounter(T, redis, tableName) {
         });
     }
 
+    this.getYesterdayRanking = function(){
+        var date = new Date();
+        date.setDate(date.getDate() - 1);
+
+        mongo.list(toDateKey(date), 5, function(list){
+            console.log(list);
+        })
+    }
+
 }
 
 module.exports = TweetCounter;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import isMobile from 'utils/common';
 
 class AdBanner extends Component {
 
@@ -7,11 +8,15 @@ class AdBanner extends Component {
 	}
 
 	render() {
-		const style = {
+		var style = {
 			display: 'block',
 			maxWidth: '300px',
 			margin: '15px'
 		};
+
+		if (isMobile()){
+			style.margin = '15px auto';			
+		}
 
 		return(
 			// <ins className="adsbygoogle"
