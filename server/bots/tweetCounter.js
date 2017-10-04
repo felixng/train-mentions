@@ -309,7 +309,8 @@ function TweetCounter(T, redis, tableName) {
             });
 
             var top5Handles = list.map(function(item) {
-               return '@' + item.handle;
+               // return '@' + item.handle;
+               return item.handle;
             });
 
             console.log(top5Handles);
