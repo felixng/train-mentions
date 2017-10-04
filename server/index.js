@@ -57,11 +57,11 @@ new CronJob('00 00 01 * * *', function() {
   counters.tweetCounter.gatherAll();
 }, null, true, 'Europe/London');
 
-setTimeout(function(){
-  // console.log('counters.tweetCounter.getYesterdayRanking()');
-  // counters.tweetCounter.getYesterdayRanking();
-}, 15000);
+// setTimeout(function(){
+//   console.log('counters.tweetCounter.getYesterdayRanking()');
+//   counters.tweetCounter.getYesterdayRankingTweetText();
+// }, 15000);
 
-// new CronJob('00 05 01 * * *', function() {
-  
-// }, null, true, 'Europe/London');
+new CronJob('00 00 07 * * *', function() {
+  counters.tweetCounter.getYesterdayRankingTweetText();
+}, null, true, 'Europe/London');

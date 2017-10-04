@@ -295,12 +295,34 @@ function TweetCounter(T, redis, tableName) {
         });
     }
 
-    this.getYesterdayRanking = function(){
+    this.getYesterdayRankingTweetText = function(){
         var date = new Date();
         date.setDate(date.getDate() - 1);
 
         mongo.list(toDateKey(date), 5, function(list){
-            console.log(list);
+            // console.log(list);
+            var top5 = list.map(function(item) {
+               return { handle: '@' + item.handle,
+                        tweets: item.tweetTotal,
+                        retweets: item.retweetTotal,
+                        favourite: item.favouriteTotal };
+            });
+
+            var top5Handles = list.map(function(item) {
+               return '@' + item.handle;
+            });
+
+            console.log(top5Handles);
+
+            var status = 'The Top 5 Tweet Buzzing Train Companies, on ' + toDateKey(date) + ' are: ' + top5Handles.join(', ');
+            //Template for different statuses and fit in ranking sequence.
+            // Ranking for today..etc
+
+            console.log(status);
+            T.post('statuses/update', { status: status }, function(err, data, response) {
+                console.log(data);
+            });
+
         })
     }
 
