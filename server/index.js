@@ -62,6 +62,6 @@ new CronJob('00 00 01 * * *', function() {
 //   counters.tweetCounter.getYesterdayRankingTweetText();
 // }, 15000);
 
-new CronJob('00 00 07 * * *', function() {
+new CronJob('00 00 14 * * *', function() {
   counters.tweetCounter.getYesterdayRankingTweetText();
 }, null, true, 'Europe/London');
