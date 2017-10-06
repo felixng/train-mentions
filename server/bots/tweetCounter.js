@@ -1,4 +1,4 @@
-function TweetCounter(T, redis, tableName) {
+function TweetCounter(T, TWriter, redis, tableName) {
     const ignore = ['e_n_o', 'enballet', 'the_globe', 'sadlers_wells', 'menchocfactory', 'openairtheatre', 'youngvictheatre', 'oldvictheatre', 'lyrichammer', 'nationaltheatre', '', null];
     var fs = require('fs');
     var http = require("http");
@@ -320,7 +320,7 @@ function TweetCounter(T, redis, tableName) {
             // Ranking for today..etc
 
             console.log(status);
-            T.post('statuses/update', { status: status }, function(err, data, response) {
+            TWriter.post('statuses/update', { status: status }, function(err, data, response) {
                 console.log(data);
             });
 
