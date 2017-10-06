@@ -4,6 +4,7 @@ var configPath = './config.js';
 var writerConfigPath = './writerConfig.js';
 if (isDev){
 	configPath = './localconfig.js'
+	writerConfigPath = configPath;
 }
 
 var Twit = require('twit');
