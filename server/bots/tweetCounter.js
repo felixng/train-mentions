@@ -325,14 +325,13 @@ function TweetCounter(T, TWriter, redis, tableName) {
                         favourite: item.favouriteTotal };
             });
 
-            var top5Handles = list.map(function(item) {
-               return '@' + item.handle;
-               return item.handle;
+            var top5Handles = list.map(function(item, index) {
+               return '#' + index + ': @' + item.handle;
             });
 
             console.log(top5Handles);
 
-            var status = 'The Top 5 Tweet Buzzing Train Companies for Yesterday, on ' + toDateKey(date) + ' are: \n' + top5Handles.join('\n');
+            var status = 'The Top 5 Tweet-Buzzing Train Companies Yesterday, on ' + toDateKey(date) + ' are: \n' + top5Handles.join('\n');
             //Template for different statuses and fit in ranking sequence.
             // Ranking for today..etc
 
