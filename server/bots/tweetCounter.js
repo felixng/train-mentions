@@ -4,6 +4,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     var http = require("http");
     var sleep = require('sleep');
     var mongo = require('./db/mongo');
+    var stream = T.stream('user');
 
     const isDev = process.env.NODE_ENV !== 'production';
     // const url = process.env.API_URL || 'uat-cms-ensemblr.herokuapp.com';
@@ -293,6 +294,22 @@ function TweetCounter(T, TWriter, redis, tableName) {
 
             callback(providers);
         });
+    }
+
+    function onTweeted(tweet) {        
+        T.post('favorites/create', { id: tweet.id }, postAction)
+    }
+
+    function postAction(err, reply) {
+        if (err !== undefined) {
+            console.log(err);
+        } else {
+            console.log('favourited: ' + reply);
+        }
+    };
+
+    this.startStream = function(){
+        stream.on('tweet', onTweeted);
     }
 
     this.getYesterdayRankingTweetText = function(){

@@ -57,6 +57,8 @@ new CronJob('00 00 01 * * *', function() {
   counters.tweetCounter.gatherAll();
 }, null, true, 'Europe/London');
 
+counters.tweetCounter.startStream();
+
 // setTimeout(function(){
 //   console.log('counters.tweetCounter.getYesterdayRanking()');
 //   counters.tweetCounter.getYesterdayRankingTweetText();
