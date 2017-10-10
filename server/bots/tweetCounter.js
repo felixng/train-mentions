@@ -4,7 +4,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     var http = require("http");
     var sleep = require('sleep');
     var mongo = require('./db/mongo');
-    var stream = T.stream('user');
+    // var stream = T.stream('user');
 
     const isDev = process.env.NODE_ENV !== 'production';
     // const url = process.env.API_URL || 'uat-cms-ensemblr.herokuapp.com';
@@ -265,40 +265,18 @@ function TweetCounter(T, TWriter, redis, tableName) {
           headers: { 'Content-Type': 'application/json' }
         };
 
-        // var handles = []
-
-        // console.log(options.path);
-
         getJSON(options, function(status, result) {
             if (result && result.rows && result.rows.length > 0){
                 var providers = result.rows;
-
-                // var providers = JSON.stringify(rows);
-
-                
-                
-                // for (var i = 0; i < rows.length; i++){
-                //     if (rows[i].tocrawl &&
-                //         rows[i].twitter && 
-                //         rows[i].twitter != '' &&
-                //         rows[i].twitter != '-') {
-                        
-                //         if (!rows[i].twitter.startsWith('#')){
-                //             rows[i].twitter = '@' + rows[i].twitter;
-                //         }
-
-                //         handles.push(rows[i].twitter);
-                //     }
-                // }
             }
 
             callback(providers);
         });
     }
 
-    function onTweeted(tweet) {        
-        T.post('favorites/create', { id: tweet.id }, postAction)
-    }
+    // function onTweeted(tweet) {        
+    //     T.post('favorites/create', { id: tweet.id }, postAction)
+    // }
 
     function postAction(err, reply) {
         if (err !== undefined) {
@@ -308,8 +286,44 @@ function TweetCounter(T, TWriter, redis, tableName) {
         }
     };
 
-    this.startStream = function(){
-        stream.on('tweet', onTweeted);
+    // this.startStream = function(){
+    //     stream.on('tweet', onTweeted);
+    // }
+
+    this.favAll = function(){
+        getHandles(function(providers){
+            providers.forEach(function(provider){
+                if (provider.handle && !ignore.includes(provider.handle.toLowerCase()) && provider.handle != null){
+                    favLatest(provider);
+                }
+                else{
+                    console.log("Ignoring Favouriting", provider.handle);
+                }
+            });
+        });
+    }
+
+    function favLatest() {
+        T.get('search/tweets', provider, function(error, data) {
+            var tweets = data.statuses;
+            if (tweets){
+                for (var i = 0; i < tweets.length; i++) {
+                    // If our search request to the server had no errors...
+                    if (!error) {
+                        var tweetId = data.statuses[i].id_str;
+                        T.post('favorites/create', { id: tweetId }, postAction)
+                    }
+
+                    // However, if our original search request had an error, we want to print it out here.
+                    else {
+                        if (debug) {
+                            console.log('There was an error with your hashtag search:', error);
+                        }
+                    }
+                }    
+            }
+            
+        });
     }
 
     this.getYesterdayRankingTweetText = function(){
