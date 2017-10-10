@@ -303,7 +303,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
         });
     }
 
-    function favLatest() {
+    function favLatest(provider) {
         T.get('search/tweets', provider, function(error, data) {
             var tweets = data.statuses;
             if (tweets){
