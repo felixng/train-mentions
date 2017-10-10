@@ -303,7 +303,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
         });
     }
 
-    function favLatest(provider) {
+    function favLatest() {
         T.get('search/tweets', provider, function(error, data) {
             var tweets = data.statuses;
             if (tweets){
@@ -316,9 +316,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
 
                     // However, if our original search request had an error, we want to print it out here.
                     else {
-                        if (debug) {
-                            console.log('There was an error with your hashtag search:', error);
-                        }
+                        console.log('There was an error with favouriting:', error);
                     }
                 }    
             }
