@@ -293,6 +293,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     this.favAll = function(){
         getHandles(function(providers){
             providers.forEach(function(provider){
+                console.log('Looping ' + provider);
                 if (provider.handle && !ignore.includes(provider.handle.toLowerCase()) && provider.handle != null){
                     favLatest(provider);
                 }
@@ -306,6 +307,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     function favLatest() {
         T.get('search/tweets', provider, function(error, data) {
             var tweets = data.statuses;
+            console.log('Got ' + tweets.length + ' from ' + provider);
             if (tweets){
                 for (var i = 0; i < tweets.length; i++) {
                     // If our search request to the server had no errors...
