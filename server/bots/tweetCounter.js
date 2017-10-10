@@ -307,8 +307,8 @@ function TweetCounter(T, TWriter, redis, tableName) {
     function favLatest(provider) {
         T.get('search/tweets', provider, function(error, data) {
             var tweets = data.statuses;
-            console.log('Got ' + tweets.length + ' from ' + provider);
             if (tweets){
+                console.log('Got ' + tweets.length + ' from ' + provider);
                 for (var i = 0; i < tweets.length; i++) {
                     // If our search request to the server had no errors...
                     if (!error) {
