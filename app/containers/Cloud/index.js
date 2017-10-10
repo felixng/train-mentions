@@ -84,14 +84,10 @@ export class Cloud extends React.PureComponent { // eslint-disable-line react/pr
     var defaultTile = '';
     var defaultDesc = '';
 
-    
-
-
     // If we have items, render them
     if (this.state.elements) {
-      
       content = this.state.elements.map((item, index) => (
-        <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted} width={this.state.windowWidth}/>
+        <ComponentToRender key={`item-${index}`} item={item} onLoaded={this.props.onMounted} cardWidth={this.state.windowWidth}/>
       ));
 
       //Inject Advert
