@@ -293,7 +293,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     this.favAll = function(){
         getHandles(function(providers){
             providers.forEach(function(provider){
-                console.log('Looping ' + provider.handle);
+                // console.log('Looping ' + provider.handle);
                 if (provider.handle && !ignore.includes(provider.handle.toLowerCase()) && provider.handle != null){
                     favLatest(provider);
                 }
@@ -305,11 +305,12 @@ function TweetCounter(T, TWriter, redis, tableName) {
     }
 
     function favLatest(provider) {
-        T.get('search/tweets', provider, function(error, data) {
-            console.log(data);
+        var searchQuery = { q: provider, geocode: "51.528308,-0.3817765,500mi", count: 100, result_type: "recent", lang: 'en', result_type: 'recent' }
+        T.get('search/tweets', searchQuery, function(error, data) {
+            // console.log(data);
             var tweets = data.statuses;
             if (tweets){
-                console.log('Got ' + tweets.length + ' from ' + provider);
+                // console.log('Got ' + tweets.length + ' from ' + provider);
                 for (var i = 0; i < tweets.length; i++) {
                     // If our search request to the server had no errors...
                     if (!error) {
