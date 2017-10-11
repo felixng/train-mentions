@@ -293,7 +293,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     this.favAll = function(){
         getHandles(function(providers){
             providers.forEach(function(provider){
-                console.log('Looping ' + provider);
+                console.log('Looping ' + provider.handle);
                 if (provider.handle && !ignore.includes(provider.handle.toLowerCase()) && provider.handle != null){
                     favLatest(provider);
                 }
@@ -306,6 +306,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
 
     function favLatest(provider) {
         T.get('search/tweets', provider, function(error, data) {
+            console.log(data);
             var tweets = data.statuses;
             if (tweets){
                 console.log('Got ' + tweets.length + ' from ' + provider);
