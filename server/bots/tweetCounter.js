@@ -282,7 +282,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
         if (err !== undefined) {
             console.log(err);
         } else {
-            console.log('favourited: ' + reply);
+            // console.log('favourited: ' + reply);
         }
     };
 
