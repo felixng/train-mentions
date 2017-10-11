@@ -57,7 +57,7 @@ new CronJob('00 00 01 * * *', function() {
   counters.tweetCounter.gatherAll();
 }, null, true, 'Europe/London');
 
-setInterval(counters.tweetCounter.favAll, 1000 * 60 * 5);
+// setInterval(counters.tweetCounter.favAll, 1000 * 60 * 5);
 
 // setTimeout(function(){
 //   console.log('counters.tweetCounter.getYesterdayRanking()');
@@ -66,4 +66,5 @@ setInterval(counters.tweetCounter.favAll, 1000 * 60 * 5);
 
 new CronJob('00 00 07 * * *', function() {
   counters.tweetCounter.getYesterdayRankingTweetText();
+  counters.tweetCounter.favAll();//for debugging
 }, null, true, 'Europe/London');

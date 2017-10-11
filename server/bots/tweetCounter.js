@@ -279,10 +279,11 @@ function TweetCounter(T, TWriter, redis, tableName) {
     // }
 
     function postAction(err, reply) {
+        console.log('PostAction');
         if (err !== undefined) {
             console.log(err);
         } else {
-            // console.log('favourited: ' + reply);
+            console.log(reply);
         }
     };
 
