@@ -315,7 +315,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
                     // If our search request to the server had no errors...
                     if (!error) {
                         var tweetId = data.statuses[i].id_str;
-                        T.post('favorites/create', { id: tweetId }, postAction)
+                        TWriter.post('favorites/create', { id: tweetId }, postAction)
                     }
 
                     // However, if our original search request had an error, we want to print it out here.
