@@ -4,8 +4,15 @@ function TweetCounter(T, TWriter, redis, tableName) {
     var http = require("http");
     var sleep = require('sleep');
     var mongo = require('./db/mongo');
-    // var stream = T.stream('user');
-
+    var GoogleURL = require( 'google-url' );
+    var googleKey = process.env.GOOGLE_API_KEY;
+    if (googleKey){
+        googleUrl = new GoogleURL( { key: googleKey });    
+    }
+    else {
+        googleUrl = new GoogleURL();
+    }
+    
     const isDev = process.env.NODE_ENV !== 'production';
     // const url = process.env.API_URL || 'uat-cms-ensemblr.herokuapp.com';
     const googleQuery = process.env.GOOGLE_QUERY || 'id=1cM9FHR5-BjLJFh9CurAVtfL2MVg73mEzCnD_pvf2ZDQ'
@@ -348,15 +355,22 @@ function TweetCounter(T, TWriter, redis, tableName) {
             
             var status = 'The Top Tweet-Buzzing Train Companies Yesterday are: \n' + top3Handles.join('\n');
             var url = 'https://trainbuzz.co.uk/' + toDateKey(date);
-            status = status + '\n' + 'More at: ' + url;
-            
-            //Template for different statuses and fit in ranking sequence?
-            // Ranking for today..etc
 
-            console.log(status);
-            TWriter.post('statuses/update', { status: status }, function(err, data, response) {
-                console.log(data);
-            });
+            googleUrl.shorten(url, function( err, shortUrl ) {
+                if (err){
+                    console.log(err);
+                }
+
+                status = status + '\n' + 'More at: ' + shortUrl;
+                //Template for different statuses and fit in ranking sequence?
+                // Ranking for today..etc
+
+                console.log(status);
+
+                TWriter.post('statuses/update', { status: status }, function(err, data, response) {
+                    console.log(data);
+                });
+            } );
 
         })
     }
