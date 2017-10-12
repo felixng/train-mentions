@@ -333,23 +333,24 @@ function TweetCounter(T, TWriter, redis, tableName) {
         var date = new Date();
         date.setDate(date.getDate() - 1);
 
-        mongo.list(toDateKey(date), 5, function(list){
+        mongo.list(toDateKey(date), 3, function(list){
             // console.log(list);
-            var top5 = list.map(function(item) {
+            var top3 = list.map(function(item) {
                return { handle: '@' + item.handle,
                         tweets: item.tweetTotal,
                         retweets: item.retweetTotal,
                         favourite: item.favouriteTotal };
             });
 
-            var top5Handles = list.map(function(item, index) {
-               return '#' + index + ': @' + item.handle;
+            var top3Handles = list.map(function(item, index) {
+               return '#' + (index+1) + ':@' + item.handle;
             });
-
-            console.log(top5Handles);
             
-            var status = 'The Top 5 Tweet-Buzzing Train Companies Yesterday are: \n' + top5Handles.join('\n');
-            //Template for different statuses and fit in ranking sequence.
+            var status = 'The Top Tweet-Buzzing Train Companies Yesterday are: \n' + top3Handles.join('\n');
+            var url = 'https://trainbuzz.co.uk/' + toDateKey(date);
+            status = status + '\n' + 'More at: ' + url;
+            
+            //Template for different statuses and fit in ranking sequence?
             // Ranking for today..etc
 
             console.log(status);
