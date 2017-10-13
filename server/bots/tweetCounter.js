@@ -283,11 +283,8 @@ function TweetCounter(T, TWriter, redis, tableName) {
     // }
 
     function postAction(err, reply) {
-        console.log('PostAction');
         if (err !== undefined) {
             console.log(err);
-        } else {
-            console.log(reply);
         }
     };
 
@@ -364,6 +361,12 @@ function TweetCounter(T, TWriter, redis, tableName) {
                 })
                 .catch(function (err) {
                     console.error(err.message);
+
+                    status = status + '\n' + 'More at: ' + url;
+
+                    TWriter.post('statuses/update', { status: status }, function(err, data, response) {
+                        console.log(data);
+                    });
                 });
         })
     }
