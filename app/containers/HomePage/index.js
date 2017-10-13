@@ -189,7 +189,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             { property: 'twitter:title', content: defaultTile},
             { property: 'og:type', content: 'website'},
             { property: 'og:image', content: host + '/trainbuzz.png'},
-            { property: 'twitter:image', content: "https://static.nfl.com/static/content/public/static/img/share/shield.jpg"},
+            { property: 'twitter:image', content: host + '/trainbuzz.png'},
             { property: 'twitter:image:src', content: host + '/trainbuzz.png'},
             { property: 'og:url', content: currentUrl},
             { property: 'twitter:card', content: "summary_large_image"},
