@@ -184,17 +184,17 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           meta={[
             { name: 'description', content: defaultDesc},
             { property: 'og:description', content: defaultDesc},
-            { property: 'twitter:description', content: defaultDesc},
+            { name: 'twitter:description', content: defaultDesc},
             { property: 'og:title', content: defaultTile},
-            { property: 'twitter:title', content: defaultTile},
+            { name: 'twitter:title', content: defaultTile},
             { property: 'og:type', content: 'website'},
             { property: 'og:image', content: host + '/trainbuzz.png'},
             { property: 'twitter:image', content: host + '/trainbuzz.png'},
             { property: 'twitter:image:src', content: host + '/trainbuzz.png'},
             { property: 'og:url', content: currentUrl},
-            { property: 'twitter:card', content: "summary_large_image"},
-            { property: 'twitter:site', content: "@TrainBuzzUK"},
-            { property: 'twitter:creator', content: "@TrainBuzzUK"},
+            { name: 'twitter:card', content: "summary_large_image"},
+            { name: 'twitter:site', content: "@TrainBuzzUK"},
+            { name: 'twitter:creator', content: "@TrainBuzzUK"},
             
           ]}
         />
