@@ -4,13 +4,10 @@ function TweetCounter(T, TWriter, redis, tableName) {
     var http = require("http");
     var sleep = require('sleep');
     var mongo = require('./db/mongo');
-    var GoogleURL = require( 'google-url' );
+    var googl = require('goo.gl');
     var googleKey = process.env.GOOGLE_API_KEY;
     if (googleKey){
-        googleUrl = new GoogleURL( { key: googleKey });    
-    }
-    else {
-        googleUrl = new GoogleURL();
+        googl.setKey(googleKey);
     }
     
     const isDev = process.env.NODE_ENV !== 'production';
@@ -313,7 +310,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
     }
 
     function favLatest(provider) {
-        var searchQuery = { q: provider, geocode: "51.528308,-0.3817765,500mi", count: 100, result_type: "recent", lang: 'en', result_type: 'recent' }
+        var searchQuery = { q: provider.handle, geocode: "51.528308,-0.3817765,500mi", count: 100, result_type: "recent", lang: 'en', result_type: 'recent' }
         T.get('search/tweets', searchQuery, function(error, data) {
             // console.log(data);
             var tweets = data.statuses;
@@ -356,22 +353,18 @@ function TweetCounter(T, TWriter, redis, tableName) {
             var status = 'The Top Tweet-Buzzing Train Companies Yesterday are: \n' + top3Handles.join('\n');
             var url = 'https://trainbuzz.co.uk/' + toDateKey(date);
 
-            googleUrl.shorten(url, function( err, shortUrl ) {
-                if (err){
-                    console.log(err);
-                }
+            googl.shorten(url)
+                .then(function (shortUrl) {
+                    status = status + '\n' + 'More at: ' + shortUrl;
+                    console.log(status);
 
-                status = status + '\n' + 'More at: ' + shortUrl;
-                //Template for different statuses and fit in ranking sequence?
-                // Ranking for today..etc
-
-                console.log(status);
-
-                TWriter.post('statuses/update', { status: status }, function(err, data, response) {
-                    console.log(data);
+                    TWriter.post('statuses/update', { status: status }, function(err, data, response) {
+                        console.log(data);
+                    });
+                })
+                .catch(function (err) {
+                    console.error(err.message);
                 });
-            } );
-
         })
     }
 

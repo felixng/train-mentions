@@ -64,6 +64,9 @@ new CronJob('00 00 01 * * *', function() {
 //   counters.tweetCounter.getYesterdayRankingTweetText();
 // }, 15000);
 
+counters.tweetCounter.getYesterdayRankingTweetText();
+counters.tweetCounter.favAll();//for debugging
+
 new CronJob('00 00 07 * * *', function() {
   counters.tweetCounter.getYesterdayRankingTweetText();
   counters.tweetCounter.favAll();//for debugging
