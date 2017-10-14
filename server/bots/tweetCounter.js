@@ -352,7 +352,7 @@ function TweetCounter(T, TWriter, redis, tableName) {
 
             googl.shorten(url)
                 .then(function (shortUrl) {
-                    status = status + '\n' + shortUrl;
+                    status = status + '\n' + 'More at:' + shortUrl;
                     console.log(status);
 
                     TWriter.post('statuses/update', { status: status }, function(err, data, response) {
